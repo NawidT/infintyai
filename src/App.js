@@ -5,15 +5,15 @@ import './App.css';
 
 export default function App() {
   return (
-     <Flex overflow="hidden" bgColor="black" >
-
-        <Box overflow="hidden" maxWidth="1560px" width="100%" >
+     <Flex overflow="hidden" bgColor="black" direction="column" 
+      alignItems="center" >
+        <Box overflow="hidden" maxWidth="1560px" width="100%" zIndex={1} >
           <video width="100%" autoPlay loop muted className="responsive-video" >
             <source src={bgvideo} type="video/mp4" />
           </video>
         </Box>
-        <Image overflow="hidden" src={logo}
-          position="fixed" 
+        <Image overflow="hidden" src={logo} width="70vw"
+          position="static" 
           zIndex="2"
         />
      </Flex>
