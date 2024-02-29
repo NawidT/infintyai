@@ -1,25 +1,21 @@
-import logo from './logo.svg';
+import { Flex, Box, Image } from "@chakra-ui/react"
+import bgvideo from './media/Gen-2BackgroundVideo.mp4'
+import logo from './media/logotransparent.png'
 import './App.css';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+     <Flex overflow="hidden" bgColor="black" >
+
+        <Box overflow="hidden" maxWidth="1560px" width="100%" >
+          <video width="100%" autoPlay loop muted className="responsive-video" >
+            <source src={bgvideo} type="video/mp4" />
+          </video>
+        </Box>
+        <Image overflow="hidden" src={logo}
+          position="fixed" 
+          zIndex="2"
+        />
+     </Flex>
   );
 }
-
-export default App;
