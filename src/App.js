@@ -1,15 +1,13 @@
 import { Flex, Box, Image, Text } from "@chakra-ui/react"
 import bgvideo from './media/Gen-2BackgroundVideo.mp4'
-import logo from './media/logotransparent.png'
-import './App.css';
 import { useRef, useState, useEffect } from "react";
 import ScaleLoader from "react-spinners/ScaleLoader";
+import transparentlogo from '../src/media/1infinitylogo.png'
 
 export default function App() {
   const [videoLoaded, setVideoLoaded] = useState(false);
 
   const videoRef = useRef(null);
-
    // Event handler for video loaded
    const onVideoLoad = () => {
     setVideoLoaded(true);
@@ -17,11 +15,22 @@ export default function App() {
 
   useEffect(() => {
     const videoElement = videoRef.current;
+    let animationFrameId;
+
+    const checkTimeAndUpdateAnimation = () => {
+      if (videoElement.currentTime > 4 && videoElement.currentTime < 6) {
+        document.getElementById('animatedElement').style.animation = 'fadeInOut 4s infinite';
+      }
+    };
+
     if (videoElement) {
       videoElement.addEventListener('loadeddata', onVideoLoad);
-      // Clean up
+      videoElement.addEventListener('timeupdate', checkTimeAndUpdateAnimation);
+
       return () => {
         videoElement.removeEventListener('loadeddata', onVideoLoad);
+        videoElement.removeEventListener('timeupdate', checkTimeAndUpdateAnimation);
+        cancelAnimationFrame(animationFrameId);
       };
     }
   }, []);
@@ -30,20 +39,29 @@ export default function App() {
   return (
      <Flex overflow="hidden" bgColor="white" direction="column" justifyContent="center" alignItems="center" height="100vh" >
         {!videoLoaded && <Flex zIndex={3} width="100vw" height="100vh" bgColor="white" justifyContent="center"
-            alignItems="center" direction="column"
+            alignItems="center" direction="column" 
         >  
           <ScaleLoader color="black" size={350} />
         </Flex>}
-        <Flex direction="column" height="100%" alignItems="center" >
-          <Image overflow="hidden" src={logo} width="80vw" opacity={videoLoaded ? 1 : 0}
-            position="absolute" 
-            zIndex={2}
-          />
-          <Text zIndex={2} position="absolute" fontSize="3rem" textAlign="center" bottom="7vh" color="white" fontWeight="extrabold"
-          > Coming Soon </Text>
+        <Flex direction="column" overflow="hidden" zIndex={2} height="90vh" width="90%" alignItems="center" justifyContent="center"
+          border="14px solid black" opacity={videoLoaded ? 1 : 0}>
+
+          <Flex direction="column" color="white" fontWeight={1000} fontSize="3rem" overflow="hidden" 
+            fontFamily="monospace" alignItems="center" justifyContent="center" >
+
+            <Text textAlign="center" bgColor="black" > 1INFINITY </Text>
+            <Flex direction="row" height="140px" >
+              <Image src={transparentlogo} width="100px" height="100px" position="relative" top="40px" opacity={videoLoaded ? 1 : 0}/>
+              <Text textAlign="center" position="relative" right="2vw" bgColor="black" > LOBAL </Text>
+            </Flex>
+            <Text textAlign="center" bgColor="black" > FUND </Text>
+
+          </Flex>
         </Flex>
+
         <Box overflow="hidden" maxWidth="1560px" width="100%" zIndex={1} >
-          <video width="100%" autoPlay loop muted playsInline className="responsive-video" ref={videoRef} >
+          <video style={{"object-fit": "cover", "width": "100vw", "height": "100vh", "position": "fixed", "top": "0", "left": "0", "transform": "scale(1)"}} 
+            width="100%" autoPlay loop muted playsInline ref={videoRef} className='animatedElement' >
             <source src={bgvideo} type="video/mp4" />
           </video>
         </Box>
