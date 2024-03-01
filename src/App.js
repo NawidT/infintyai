@@ -28,12 +28,12 @@ export default function App() {
 
   return (
      <Flex overflow="hidden" bgColor="black" direction="column" justifyContent="center" alignItems="center" height="100vh" >
-        {!videoLoaded && <Flex zIndex={3} width="100vw" height="100vh" bgColor="white" justifyContent="center"
+        {!videoLoaded && <Flex zIndex={3} width="100vw" height="100%" bgColor="white" justifyContent="center"
             alignItems="center" direction="column" 
         >  
-          <ScaleLoader color="black" size={350} />
+          <ScaleLoader color="black" height="300px" width="3vw" />
         </Flex>}
-        <Flex direction="column" overflow="hidden" zIndex={2} height="90vh" width="90%" alignItems="center" justifyContent="center"
+        <Flex direction="column" overflow="hidden" zIndex={2} height={videoLoaded ? "90vh": "0"} width="90%" alignItems="center" justifyContent="center"
           border="14px solid black" opacity={videoLoaded ? 1 : 0}>
 
           <Flex direction="column" color="white" fontWeight={1000} fontSize="3rem" overflow="hidden" 
