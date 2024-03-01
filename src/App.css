@@ -2,14 +2,20 @@
   object-fit: cover;
   width: 100vw;
   height: 100vh;
-  position: fixed; /* Ensures the video is fixed in the viewport */
+  position: fixed;
   top: 0;
   left: 0;
-  transform: scale(1); /* No scaling by default */
+  transform: scale(1);
+  
 }
 
 @media (max-width: 768px) {
   .responsive-video {
-    transform: scale(1.0); /* Zoom out the video on smaller screens */
+    transform: scale(1.0);
   }
+}
+
+@keyframes fadeInOut {
+  0%, 60% { opacity: 1; }
+  60%, 100% { opacity: 0; }
 }
