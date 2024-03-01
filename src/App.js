@@ -1,5 +1,5 @@
 import { Flex, Box, Image, Text } from "@chakra-ui/react"
-import bgvideo from './media/Gen-2BackgroundVideo.mp4'
+import longbgvideo from './media/LongGen2Both.mp4'
 import { useRef, useState, useEffect } from "react";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import transparentlogo from '../src/media/1infinitylogo.png'
@@ -15,29 +15,19 @@ export default function App() {
 
   useEffect(() => {
     const videoElement = videoRef.current;
-    let animationFrameId;
-
-    const checkTimeAndUpdateAnimation = () => {
-      if (videoElement.currentTime > 4 && videoElement.currentTime < 6) {
-        document.getElementById('animatedElement').style.animation = 'fadeInOut 4s infinite';
-      }
-    };
 
     if (videoElement) {
       videoElement.addEventListener('loadeddata', onVideoLoad);
-      videoElement.addEventListener('timeupdate', checkTimeAndUpdateAnimation);
 
       return () => {
         videoElement.removeEventListener('loadeddata', onVideoLoad);
-        videoElement.removeEventListener('timeupdate', checkTimeAndUpdateAnimation);
-        cancelAnimationFrame(animationFrameId);
       };
     }
   }, []);
 
 
   return (
-     <Flex overflow="hidden" bgColor="white" direction="column" justifyContent="center" alignItems="center" height="100vh" >
+     <Flex overflow="hidden" bgColor="black" direction="column" justifyContent="center" alignItems="center" height="100vh" >
         {!videoLoaded && <Flex zIndex={3} width="100vw" height="100vh" bgColor="white" justifyContent="center"
             alignItems="center" direction="column" 
         >  
@@ -60,9 +50,9 @@ export default function App() {
         </Flex>
 
         <Box overflow="hidden" maxWidth="1560px" width="100%" zIndex={1} >
-          <video style={{"object-fit": "cover", "width": "100vw", "height": "100vh", "position": "fixed", "top": "0", "left": "0", "transform": "scale(1)"}} 
-            width="100%" autoPlay loop muted playsInline ref={videoRef} className='animatedElement' >
-            <source src={bgvideo} type="video/mp4" />
+          <video style={{"object-fit": "cover", "width": "100vw", "height": "100vh", "position": "fixed", "top": "0", "left": "0"}} 
+            width="100%" autoPlay loop muted playsInline ref={videoRef} >
+            <source src={longbgvideo} type="video/mp4" />
           </video>
         </Box>
      </Flex>
