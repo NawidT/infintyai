@@ -34,20 +34,20 @@ export default function App() {
           <ScaleLoader color="black" height="300px" width="3vw" />
         </Flex>}
 
-        <Flex direction="column" overflow="hidden" zIndex={2} height={videoLoaded ? "100vh": "0"} width="90%" alignItems="center" justifyContent="space-between"
+        <Flex direction="column" overflow="hidden" zIndex={2} height={videoLoaded ? "100vh": "0"} width="90%" alignItems="center" justifyContent="flex-end"
            opacity={videoLoaded ? 1 : 0}>
 
-          <Flex direction="column" color="white" fontSize="3rem" justifyContent="center" fontFamily="monospace" >
+          <Flex direction="row" color="black" fontSize="4rem" justifyContent="center" alignItems="flex-end" fontFamily="monospace" textShadow="4px 4px 7px white" >
             <Text fontWeight="bold" >1INFINITY VENTURES</Text>
             <Flex direction="row" justifyContent="center" alignItems="center">
-              <Image src={transparentlogo} sx={{ filter: 'saturate(0%) grayscale(100%) brightness(1000%)'}} width="100px" height="100px" 
-                  position="relative" bottom="6vh" left="4vw" opacity={videoLoaded ? 1 : 0}/>
-              <Text color="white" fontWeight="bold" ml="2vw" mt="-10vh"> LOBAL FUND</Text>
+              <Image src={transparentlogo} sx={{ filter: 'saturate(0%) grayscale(100%) brightness(0%)'}} width="100px" height="100px" 
+                  position="relative" top="2vh" left="2vw" opacity={videoLoaded ? 1 : 0}/>
+              <Text fontWeight="bold" > LOBAL FUND</Text>
             </Flex>
           </Flex>
 
-          <Text textAlign="center" color="pink" fontWeight="bold" fontStyle="italic" fontSize="3.5rem"
-          textShadow="1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000" > - coming soon - </Text>
+          {/* <Text textAlign="center" color="pink" fontWeight="bold" fontStyle="italic" fontSize="3.5rem"
+          textShadow="1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000" > - coming soon - </Text> */}
         </Flex>
 
         <Box overflow="hidden" maxWidth="1560px" width="100vw" zIndex={1} >
