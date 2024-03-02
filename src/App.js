@@ -1,5 +1,5 @@
 import { Flex, Box, Image, Text } from "@chakra-ui/react"
-import longbgvideo from './media/LongGen2Both.mp4'
+import longbgvideo from './media/LongWatermarkLess.mp4'
 import { useRef, useState, useEffect } from "react";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import transparentlogo from '../src/media/1infinitylogo.png'
@@ -40,7 +40,7 @@ export default function App() {
           <Flex direction="row" color="black" fontSize="4rem" justifyContent="center" alignItems="flex-end" fontFamily="monospace" textShadow="4px 4px 7px white" >
             <Text fontWeight="bold" >1INFINITY VENTURES</Text>
             <Flex direction="row" justifyContent="center" alignItems="center">
-              <Image src={transparentlogo} sx={{ filter: 'saturate(0%) grayscale(100%) brightness(0%)'}} width="100px" height="100px" 
+              <Image src={transparentlogo} sx={{ filter: 'saturate(30%) grayscale(0%) brightness(100%)'}} width="100px" height="100px" 
                   position="relative" top="2vh" left="2vw" opacity={videoLoaded ? 1 : 0}/>
               <Text fontWeight="bold" > LOBAL FUND</Text>
             </Flex>
