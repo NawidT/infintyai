@@ -3,6 +3,7 @@ import longbgvideo from './media/LongWatermarkLess.mp4'
 import { useRef, useState, useEffect } from "react";
 import ScaleLoader from "react-spinners/ScaleLoader";
 import transparentlogo from '../src/media/1infinitylogo.png'
+import './App.css';
 
 export default function App() {
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -37,17 +38,16 @@ export default function App() {
         <Flex direction="column" overflow="hidden" zIndex={2} height={videoLoaded ? "100vh": "0"} width="90%" alignItems="center" justifyContent="flex-end"
            opacity={videoLoaded ? 1 : 0}>
 
-          <Flex direction="row" color="black" fontSize="4rem" justifyContent="center" alignItems="flex-end" fontFamily="monospace" textShadow="4px 4px 7px white" >
-            <Text fontWeight="bold" >1INFINITY VENTURES</Text>
+          <div className="textcontent">
+            <Text fontWeight="bold" mr="2vw" >1INFINITY</Text>
+            <Text fontWeight="bold" >VENTURES</Text>
             <Flex direction="row" justifyContent="center" alignItems="center">
               <Image src={transparentlogo} sx={{ filter: 'saturate(30%) grayscale(0%) brightness(100%)'}} width="100px" height="100px" 
                   position="relative" top="2vh" left="2vw" opacity={videoLoaded ? 1 : 0}/>
-              <Text fontWeight="bold" > LOBAL FUND</Text>
+              <Text fontWeight="bold" mr="2vw" > LOBAL</Text>
             </Flex>
-          </Flex>
-
-          {/* <Text textAlign="center" color="pink" fontWeight="bold" fontStyle="italic" fontSize="3.5rem"
-          textShadow="1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000" > - coming soon - </Text> */}
+            <Text fontWeight="bold" >FUND</Text>
+          </div>
         </Flex>
 
         <Box overflow="hidden" maxWidth="1560px" width="100vw" zIndex={1} >

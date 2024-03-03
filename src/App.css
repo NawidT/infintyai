@@ -1,0 +1,20 @@
+.textcontent {
+    display: flex;
+    flex-direction: row; /* Mimics direction="row" */
+    font-size: 3rem;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    text-shadow: 4px 4px 7px white;
+}
+
+@media screen and (max-width: 768px) {
+    .textcontent {
+        height: 100vh;
+        font-size: 2rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
